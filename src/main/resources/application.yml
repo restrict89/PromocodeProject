@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: PromocodeProject
+  datasource:
+    url: "${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/promocode}"
+    username: "${POSTGRES_USER:promocode}"
+    password: "${POSTGRES_PASSWORD:promocode}"
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: false
+    validate-on-migrate: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+outbox:
+  topic: promocode-activate-events
+  poll-delay-ms: 1000

@@ -2,7 +2,7 @@ package com.example.promocode.domain.model;
 
 import java.time.Instant;
 
-record Promocode(
+public record Promocode(
         long id,
         String code,
         String category,

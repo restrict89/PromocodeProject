@@ -2,7 +2,7 @@ package com.example.promocode.infrastructure.http;
 
 import java.util.UUID;
 
-interface UserStatusHttpClient {
+public interface UserStatusHttpClient {
 
     /**
      * Requests the neighbouring service for the user's activity status.
